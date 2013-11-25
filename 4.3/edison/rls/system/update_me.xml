@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RomConfig>
     <RomName>JBX-Kernel</RomName>
-    <OtaUid>jbxk_r</OtaUid>
-    <RomVersion>1.5.0</RomVersion>
-    <RomCheckUrl>http://www.dtrailer.de/jbxk_r/ota/update_me_check.xml</RomCheckUrl>
+    <OtaUid>jbxk_e</OtaUid>
+    <RomVersion>1.5.1</RomVersion>
+    <RomCheckUrl>http://www.dtrailer.de/jbxk_e/ota/update_me_check.xml</RomCheckUrl>
 	<RebootType>1</RebootType>
 </RomConfig>
