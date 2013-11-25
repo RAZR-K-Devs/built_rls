@@ -1,0 +1,9 @@
+#!/system/bin/sh
+
+# ---> dtrail (D-WiZ 1.00) (c)2012
+#
+# Shut down nmi watchdog
+#
+#
+
+echo 0 > /proc/sys/kernel/nmi_watchdog;
