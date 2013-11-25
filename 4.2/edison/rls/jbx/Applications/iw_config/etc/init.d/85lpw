@@ -1,0 +1,7 @@
+#!/system/bin/sh
+
+# ---> dtrail (D-WiZ 1.00) (c)2012
+#
+# Setting Power Management for Wifi
+
+iwconfig qmi0 power on

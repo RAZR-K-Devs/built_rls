@@ -1,0 +1,22 @@
+#!/system/bin/sh
+
+# ---> dtrail (D-WiZ 1.00) (c)2012
+#
+# Setting up SD-Card tweaks
+
+chmod 777 /sys/block/mmcblk0/queue/read_ahead_kb
+echo 2048 > /sys/block/mmcblk0/queue/read_ahead_kb
+chmod 777 /sys/block/mmcblk1/queue/read_ahead_kb
+echo 2048 > /sys/block/mmcblk1/queue/read_ahead_kb
+chmod 777 /sys/devices/virtual/bdi/179:0/read_ahead_kb
+echo 2048 > /sys/devices/virtual/bdi/179:0/read_ahead_kb
+if [ ! -e /sys/block/mmcblk0/queue/read_ahead_kb ]
+then
+sleep 60
+fi
+chmod 777 /sys/block/mmcblk0/queue/read_ahead_kb
+echo 2048 > /sys/block/mmcblk0/queue/read_ahead_kb
+chmod 777 /sys/block/mmcblk1/queue/read_ahead_kb
+echo 2048 > /sys/block/mmcblk1/queue/read_ahead_kb
+chmod 777 /sys/devices/virtual/bdi/179:0/read_ahead_kb
+echo 2048 > /sys/devices/virtual/bdi/179:0/read_ahead_kb
