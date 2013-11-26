@@ -24,7 +24,7 @@ ui_print("Mounting Partitions");
 run_program("/tmp/mount", "/system");
 run_program("/tmp/mount", "/data");
 run_program("/tmp/mount", "/cache");
-run_program("/tmp/mount", "/sdcard-ext");
+run_program("/tmp/mount", "/ext");
 ##############################################################
 #                                                            #
 #   		Aroma Installer For JBX-Kernel     	     #
@@ -35,10 +35,10 @@ if
       file_getprop("/tmp/aroma/install.prop","item.1.1") == "1"
     then
       ui_print("@  Backing up current kernel and modules");
-	run_program("/sbin/mkdir", "-p", "/sdcard-ext/kernel_backup");
-	run_program("/sbin/mkdir", "-p", "/sdcard-ext/kernel_backup/modules");
-	run_program("/sbin/cp", "-f", "/system/etc/kexec/kernel", "/sdcard-ext/kernel_backup/kernel.bak");
-	run_program("/sbin/cp", "-rf", "/system/lib/modules", "/sdcard-ext/kernel_backup/");
+	run_program("/sbin/mkdir", "-p", "/ext/kernel_backup");
+	run_program("/sbin/mkdir", "-p", "/ext/kernel_backup/modules");
+	run_program("/sbin/cp", "-f", "/system/etc/kexec/kernel", "/ext/kernel_backup/kernel.bak");
+	run_program("/sbin/cp", "-rf", "/system/lib/modules", "/ext/kernel_backup/");
 endif;
 set_progress(0.06);
 if
@@ -183,6 +183,14 @@ if
       ui_print("@  Installing Motorola Stock Cam");
 	  package_extract_dir("jbx/Applications/motc", "/system/app");
 endif;
+
+if
+      file_getprop("/tmp/aroma/tweaks.prop","item.6.1") == "1"
+    then
+      ui_print("@  Installing Xposed Battery Stats Module");
+	  package_extract_dir("jbx/Applications/xposed/system", "/system");
+	  package_extract_dir("jbx/Applications/xposed/ext", "/ext");
+endif;
 ##############################################################
 #               Aroma Installer For JBX-Kernel	             #
 ##############################################################
@@ -253,5 +261,5 @@ ui_print(" ");
 unmount("/data");
 unmount("/system");
 unmount("/cache");
-unmount("/sdcard-ext");
+unmount("/ext");
 ui_print("JBX-Kernel Installed! Enjoy!");
