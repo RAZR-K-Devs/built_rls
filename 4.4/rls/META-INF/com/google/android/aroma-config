@@ -86,7 +86,7 @@ checkbox(
   "Camera","",										2, #-- Group 5. key = "item.5"
     "Motorola Moto X Cam",         	"Leaked Moto X Cam. Very great cam!",1, #-- item.5 = 1
     "Motorola Stock Camera",       	"Camera from Moto Stock Roms",0, #-- item.5 = 2
-  "Temporary Bugfixes",									2, #-- Group 6. key = "item.6"
+  "Temporary Bugfixes","",								2, #-- Group 6. key = "item.6"
     "Xposed Module: Battery Stats",	"Install this to get Battery Info Stats enabled in KitKat. Needed for some Apps like BetterBatteryStats. NOTE: An emergency zip file will be created on sdcard-ext!",1
 );
 
