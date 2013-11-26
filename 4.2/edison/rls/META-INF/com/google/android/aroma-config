@@ -17,11 +17,11 @@
 # ini_set("customkeycode_menu",   "139");
 # ini_set("customkeycode_back",   "158");
 
-ini_set("rom_name",             "JBX-Kernel Hybrid -- RAZR-EDITION");
-ini_set("rom_version",          "1.5");
+ini_set("rom_name",             "JBX-Kernel Hybrid -- ATRIX-EDITION");
+ini_set("rom_version",          "0.9");
 ini_set("rom_author",           "dtrail");
-ini_set("rom_device",           "Motorola Razr");
-ini_set("rom_date",             "Nov, 21 2013");
+ini_set("rom_device",           "Motorola Atrix 2");
+ini_set("rom_date",             "Nov, 26 2013");
 
 #
 # Set Small Font to Support all fonts
