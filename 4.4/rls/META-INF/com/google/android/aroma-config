@@ -69,7 +69,7 @@ checkbox(
   "Additional Tweaks","",2,  #-- Group 2. key = "item.2"
   "Init.d",						"",			2,
     "Init.d Memory Tweaks",            "Changes the RAM/Memory usage.",0,	#-- item.2 = 1
-    "Init.d Net-Security Tweaks",      	"Optimized configuration of Net-Security (IPv4), such like unallowed redirects, etc.",1, #-- item.2 = 2
+    "Init.d Net-Security Tweaks",      	"Optimized configuration of Net-Security (IPv4), such like unallowed redirects, etc.",0, #-- item.2 = 2
     "Init.d Net-Speed Tweaks",      	"Changes the configuration of Net-Speed (IPv4).",0, #-- item.2 = 3
     "Init.d Battery Tweaks",      	"Optimized kernel configuration for less power consumption. Can cause instability in some cases (maybe).",0, #-- item.2 = 4
     "Init.d read_ahead Tweaks",      	"optimized Cache configuration. Adjusts read_ahead kb.",0, #-- item.2 = 5
@@ -86,6 +86,7 @@ checkbox(
   "Camera","",										2, #-- Group 5. key = "item.5"
     "Motorola Moto X Cam",         	"Leaked Moto X Cam. Very great cam!",1, #-- item.5 = 1
     "Motorola Stock Camera",       	"Camera from Moto Stock Roms",0, #-- item.5 = 2
+    "720p/1080p Video Recording",	"EXPERIMENTAL! But when using Moto X Cam you are able to record 710p without issues!",1, #-- item.5 = 3
   "Temporary Bugfixes","",								2, #-- Group 6. key = "item.6"
     "Xposed Module: Battery Stats",	"Install this to get Battery Info Stats enabled in KitKat. Needed for some Apps like BetterBatteryStats. NOTE: An emergency zip file will be created on sdcard-ext!",1
 );
