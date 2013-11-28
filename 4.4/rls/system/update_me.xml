@@ -2,7 +2,7 @@
 <RomConfig>
     <RomName>JBX-Kernel</RomName>
     <OtaUid>jbxk_r_kk</OtaUid>
-    <RomVersion>2.0.1</RomVersion>
+    <RomVersion>2.0.2</RomVersion>
     <RomCheckUrl>http://www.dtrailer.de/jbxk_r_kk/ota/update_me_check.xml</RomCheckUrl>
 	<RebootType>1</RebootType>
 </RomConfig>
