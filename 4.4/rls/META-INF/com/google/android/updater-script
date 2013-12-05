@@ -41,6 +41,7 @@ if
 	run_program("/sbin/cp", "-rf", "/system/lib/modules", "/sdcard-ext/kernel_backup/");
 endif;
 set_progress(0.06);
+
 if
       file_getprop("/tmp/aroma/install.prop","item.1.2") == "1"
     then
@@ -56,13 +57,45 @@ if
 	run_program("/sbin/rm", "/system/etc/init.d/06Sleepytime");
 	run_program("/sbin/rm", "/system/etc/init.d/71sqloptimize");
 	run_program("/sbin/rm", "/system/etc/init.d/S70zipalign");
+	run_program("/sbin/rm", "/system/etc/init.d/S99_Battery_Friend");
+	run_program("/sbin/rm", "/system/etc/init.d/32netspeed");
+	package_extract_dir("jbx/Applications/nonhd", "/system/etc");
+	run_program("/sbin/rm", "/system/app/MotoX-Camera-3.0.187.apk");
+	run_program("/sbin/rm", "/system/app/EnableBatteryStatsPermission_1.1.apk");
+	run_program("/sbin/rm", "/system/app/XposedInstaller_2.4-beta1.apk");
+	run_program("/sbin/rm", "/system/app/Trickstermod.apk");
 endif;
 set_progress(0.13);
+
 if
       file_getprop("/tmp/aroma/install.prop","item.1.3") == "1"
     then
       ui_print("@  Installing JBX-Kernel");
 	package_extract_dir("system", "/system");
+endif;
+set_progress(0.14);
+
+if
+      file_getprop("/tmp/aroma/install.prop","item.1.4") == "1"
+    then
+      ui_print("@  Cleaning up all JBX-Tweaks");
+	run_program("/sbin/rm", "/system/etc/init.d/01kernel");
+	run_program("/sbin/rm", "/system/etc/init.d/60sdche");
+	run_program("/sbin/rm", "/system/etc/init.d/00tweaks");
+	run_program("/sbin/rm", "/system/etc/init.d/02kernel_net");
+	run_program("/sbin/rm", "/system/etc/init.d/03nmi_watchdog_off");
+	run_program("/sbin/rm", "/system/etc/init.d/04kernel_memory");
+	run_program("/sbin/rm", "/system/etc/init.d/06Sleepytime");
+	run_program("/sbin/rm", "/system/etc/init.d/71sqloptimize");
+	run_program("/sbin/rm", "/system/etc/init.d/S70zipalign");
+	run_program("/sbin/rm", "/system/etc/init.d/S99_Battery_Friend");
+	run_program("/sbin/rm", "/system/etc/init.d/32netspeed");
+	run_program("/sbin/rm", "/system/app/MotoX-Camera-3.0.187.apk");
+	run_program("/sbin/rm", "/system/app/Trickstermod.apk");
+	run_program("/sbin/rm", "/system/app/Trickstermod.apk");
+	run_program("/sbin/rm", "/system/app/EnableBatteryStatsPermission_1.1.apk");
+	run_program("/sbin/rm", "/system/app/XposedInstaller_2.4-beta1.apk");
+	package_extract_dir("jbx/Applications/nonhd", "/system/etc");
 endif;
 set_progress(0.16);
 
@@ -192,12 +225,27 @@ if
 endif;
 
 if
+      file_getprop("/tmp/aroma/tweaks.prop","item.5.4") == "1"
+    then
+      ui_print("@  Removing Camera HD Mod");
+	  package_extract_dir("jbx/Applications/nonhd", "/system/etc");
+endif;
+
+if
       file_getprop("/tmp/aroma/tweaks.prop","item.6.1") == "1"
     then
       ui_print("@  Installing Xposed Battery Stats Module");
 	  package_extract_dir("jbx/Applications/xposed/system", "/system");
 	  package_extract_dir("jbx/Applications/xposed/sdcard-ext", "/sdcard-ext");
 endif;
+
+if
+      file_getprop("/tmp/aroma/tweaks.prop","item.7.1") == "1"
+    then
+      ui_print("@  Setting Battery_Friend disabled");
+	  package_extract_dir("jbx/Applications/bf", "/system/etc/init.d");
+endif;
+
 ##############################################################
 #               Aroma Installer For JBX-Kernel	             #
 ##############################################################
