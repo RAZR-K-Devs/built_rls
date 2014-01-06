@@ -76,7 +76,7 @@ if
 	package_extract_file("tmp2/misco", "/tmp/misco");
 	set_perm(0, 0, 0777, "/tmp/set-props_ota.sh");
 	run_program("/tmp/set-props_ota.sh", "set-prop");
-	run_program("/sbin/rm", "/system/build-prop.bak");
+	run_program("/sbin/rm", "/system/build.prop.bak");
 endif;
 set_progress(0.14);
 
