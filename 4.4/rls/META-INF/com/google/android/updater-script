@@ -312,6 +312,6 @@ ui_print(" ");
 # Unmount
 unmount("/data");
 unmount("/system");
-unmount("/cache");
-unmount("/sdcard-ext");
+# unmount("/cache");
+# unmount("/sdcard-ext");
 ui_print("JBX-Kernel Installed! Enjoy!");
