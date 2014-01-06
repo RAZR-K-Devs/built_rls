@@ -264,26 +264,31 @@ symlink("/system/xbin/iwmulticall", "/system/xbin/iwspy");
 set_progress(0.77);
 
 # SD-Card RW Speed Fix
-ui_print("@  Installing SDcard RW-Speed Fix");
-package_extract_file("tmp/set-props.sh", "/tmp/set-props.sh");
-package_extract_file("tmp/misc", "/tmp/misc");
-set_perm(0, 0, 0777, "/tmp/set-props.sh");
-run_program("/tmp/set-props.sh", "set-prop");
+# ui_print("@  Installing SDcard RW-Speed Fix");
+# package_extract_file("tmp/set-props.sh", "/tmp/set-props.sh");
+# package_extract_file("tmp/misc", "/tmp/misc");
+# set_perm(0, 0, 0777, "/tmp/set-props.sh");
+# run_program("/tmp/set-props.sh", "set-prop");
 set_progress(0.85);
 
 # OTA Updater configuration
-ui_print("@  Setting up OTA Updater");
-package_extract_file("tmp2/set-props_ota.sh", "/tmp/set-props_ota.sh");
-package_extract_file("tmp2/misco", "/tmp/misco");
-set_perm(0, 0, 0777, "/tmp/set-props_ota.sh");
-run_program("/tmp/set-props_ota.sh", "set-prop");
+if
+      file_getprop("/tmp/aroma/tweaks.prop","item.1.3") == "1"
+    then
+	ui_print("@  Setting up OTA Updater");
+		package_extract_file("tmp2/set-props_ota.sh", "/tmp/set-props_ota.sh");
+		package_extract_file("tmp2/misco", "/tmp/misco");
+		set_perm(0, 0, 0777, "/tmp/set-props_ota.sh");
+		run_program("/tmp/set-props_ota.sh", "set-prop");
+		run_program("/sbin/rm", "/system/build-prop.bak");
+endif;
 set_progress(0.95);
 
 # SQLite
-package_extract_file("utils/sql", "/tmp/sql");
-set_perm(0, 0, 0777, "/tmp/sql");
-ui_print("Optimizing Caches... can take 2 mins");
-run_program("/tmp/sql");
+# package_extract_file("utils/sql", "/tmp/sql");
+# set_perm(0, 0, 0777, "/tmp/sql");
+# ui_print("Optimizing Caches... can take 2 mins");
+# run_program("/tmp/sql");
 set_progress(0.99);
 
 # Wipe
