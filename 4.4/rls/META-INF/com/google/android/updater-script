@@ -281,6 +281,9 @@ set_progress(0.85);
 # set_perm(0, 0, 0777, "/tmp/sql");
 # ui_print("Optimizing Caches... can take 2 mins");
 # run_program("/tmp/sql");
+
+# Cleanup a little to avoid Build Version conflicts
+run_program("/sbin/rm", "/system/build.prop.bak");
 set_progress(0.99);
 
 # Wipe
