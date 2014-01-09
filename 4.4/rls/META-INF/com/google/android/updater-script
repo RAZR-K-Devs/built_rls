@@ -287,8 +287,8 @@ run_program("/sbin/rm", "/system/build.prop.bak");
 set_progress(0.99);
 
 # Wipe
-ui_print("Wiping dalvik-cache");
-delete_recursive("/data/dalvik-cache");
+ui_print("Clean up");
+# delete_recursive("/data/dalvik-cache");
 delete_recursive("/tmp/aroma");
 
 set_progress(1);
