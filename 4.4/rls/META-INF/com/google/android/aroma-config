@@ -21,7 +21,7 @@ ini_set("rom_name",             "JBX-Kernel Hybrid -- RAZR-EDITION");
 ini_set("rom_version",          "2.1");
 ini_set("rom_author",           "dtrail");
 ini_set("rom_device",           "Motorola Razr");
-ini_set("rom_date",             "Jan, 10 2014");
+ini_set("rom_date",             "Jan, 13 2014");
 
 #
 # Set Small Font to Support all fonts
