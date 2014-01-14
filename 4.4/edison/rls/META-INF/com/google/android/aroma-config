@@ -87,7 +87,7 @@ checkbox(
   "Camera","",										2, #-- Group 5. key = "item.5"
     "Motorola Moto X Cam",         	"Leaked Moto X Cam. Very great cam!",1, #-- item.5 = 1
     "Motorola Stock Camera",       	"Camera from Moto Stock Roms",0, #-- item.5 = 2
-    "720p/1080p Video Recording",	"EXPERIMENTAL! But when using Moto X Cam you are able to record 710p without issues!",1, #-- item.5 = 3
+    "720p/1080p Video Recording",	"Enable FULL HD Video Recording!",1, #-- item.5 = 3
     "REMOVE: 720p/1080p Video Recording",	"Restore default camera profiles",0, #-- item.5 = 4
   "Temporary Bugfixes","",								2, #-- Group 6. key = "item.6"
     "Xposed Framework + Battery Stats module",	"Get Battery Info Stats enabled in KitKat (i.e. for BetterBatteryStats). An emergency zip file will be created on sdcard-ext!",1,
