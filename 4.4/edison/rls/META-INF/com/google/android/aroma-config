@@ -18,10 +18,10 @@
 # ini_set("customkeycode_back",   "158");
 
 ini_set("rom_name",             "JBX-Kernel Hybrid -- ATRIX-EDITION");
-ini_set("rom_version",          "2.0");
+ini_set("rom_version",          "2.1");
 ini_set("rom_author",           "dtrail");
 ini_set("rom_device",           "Motorola Atrix 2");
-ini_set("rom_date",             "Dec, 09 2013");
+ini_set("rom_date",             "Jan, 14 2014");
 
 #
 # Set Small Font to Support all fonts
@@ -70,14 +70,14 @@ checkbox(
   "Additional Tweaks","",2,  #-- Group 2. key = "item.2"
   "Init.d",						"",			2,
     "Init.d Memory Tweaks",            "Changes the RAM/Memory usage.",0,	#-- item.2 = 1
-    "Init.d Net-Security Tweaks",      	"Optimized configuration of Net-Security (IPv4), such like unallowed redirects, etc.",1, #-- item.2 = 2
+    "Init.d Net-Security Tweaks",      	"Optimized configuration of Net-Security (IPv4), such like unallowed redirects, etc.",0, #-- item.2 = 2
     "Init.d Net-Speed Tweaks",      	"Changes the configuration of Net-Speed (IPv4).",0, #-- item.2 = 3
     "Init.d Battery Tweaks",      	"Optimized kernel configuration for less power consumption. Can cause instability in some cases (maybe).",0, #-- item.2 = 4
     "Init.d read_ahead Tweaks",      	"optimized Cache configuration. Adjusts read_ahead kb.",0, #-- item.2 = 5
     "Init.d Mount Tweaks",      	"Optimized mount points configuration. Increases speed. Can cause instability in some cases (maybe).",0, #-- item.2 = 6
     "Init.d Sleeper Tweaks",      	"Changes the state of Sleeper configuration. Can increase speed and result in a better battery consumption.",0, #-- item.2 = 7
   "Startup and extra",						"",			2, #-- Group 3. key = "item.3"
-    "nmi-Watchdog OFF",      		"This will turn off the nmi_watchdog. Saves some power and increases speed - but also disables some debug options.",0, #-- item.3 = 1
+    "nmi-Watchdog OFF",      		"This will turn off the nmi_watchdog. Saves some power and increases speed - but also disables some debug options.",1, #-- item.3 = 1
     "Zipalign apps on boot",      	"Zipalign all apps on each startup. Can affect boot time.",0, #-- item.3 = 2
     "Optimize SQlite database on boot", "SQlite database optimization on each startup. Can affect boot time.",0,  #-- item.3 = 3
     "Iw_config", 			"Installs the iwmulticall binary for Wifi Power Management. Low PM mode will be turned ON by default. Saves power for Wifi usage",0,  #-- item.3 = 4
@@ -90,7 +90,7 @@ checkbox(
     "720p/1080p Video Recording",	"EXPERIMENTAL! But when using Moto X Cam you are able to record 710p without issues!",1, #-- item.5 = 3
     "REMOVE: 720p/1080p Video Recording",	"Restore default camera profiles",0, #-- item.5 = 4
   "Temporary Bugfixes","",								2, #-- Group 6. key = "item.6"
-    "Xposed Module: Battery Stats",	"Get Battery Info Stats enabled in KitKat (i.e. for BetterBatteryStats). An emergency zip file will be created on sdcard-ext!",1,
+    "Xposed Framework + Battery Stats module",	"Get Battery Info Stats enabled in KitKat (i.e. for BetterBatteryStats). An emergency zip file will be created on sdcard-ext!",1,
   "Temporary Options","",								2, #-- Group 7. key = "item.7"
     "Battery Friend DISABLE",		"WARNING!!! READ THE FAQ! BF is enabled by default. Disabling BF will unlock OC options! BE CAREFUL with OC your device!",0
 );

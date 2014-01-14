@@ -72,8 +72,15 @@ if
     then
       ui_print("@  Installing JBX-Kernel");
 	package_extract_dir("system", "/system");
+	ui_print("@  Setting up OTA Updater and SD-Card Speed Fix");
+	package_extract_file("tmp/set-props.sh", "/tmp/set-props.sh");
+	package_extract_file("tmp/misc", "/tmp/misc");
+	set_perm(0, 0, 0777, "/tmp/set-props.sh");
+	run_program("/tmp/set-props.sh", "set-prop");
+	set_progress(0.85);
+	run_program("/sbin/rm", "/system/build.prop.bak");
 endif;
-set_progress(0.16);
+set_progress(0.14);
 
 if
       file_getprop("/tmp/aroma/install.prop","item.1.4") == "1"
@@ -263,32 +270,19 @@ symlink("/system/xbin/iwmulticall", "/system/xbin/iwpriv");
 symlink("/system/xbin/iwmulticall", "/system/xbin/iwspy");
 set_progress(0.77);
 
-# SD-Card RW Speed Fix
-ui_print("@  Installing SDcard RW-Speed Fix");
-package_extract_file("tmp/set-props.sh", "/tmp/set-props.sh");
-package_extract_file("tmp/misc", "/tmp/misc");
-set_perm(0, 0, 0777, "/tmp/set-props.sh");
-run_program("/tmp/set-props.sh", "set-prop");
-set_progress(0.85);
-
-# OTA Updater configuration
-ui_print("@  Setting up OTA Updater");
-package_extract_file("tmp2/set-props_ota.sh", "/tmp/set-props_ota.sh");
-package_extract_file("tmp2/misco", "/tmp/misco");
-set_perm(0, 0, 0777, "/tmp/set-props_ota.sh");
-run_program("/tmp/set-props_ota.sh", "set-prop");
-set_progress(0.95);
-
 # SQLite
-package_extract_file("utils/sql", "/tmp/sql");
-set_perm(0, 0, 0777, "/tmp/sql");
-ui_print("Optimizing Caches... can take 2 mins");
-run_program("/tmp/sql");
+# package_extract_file("utils/sql", "/tmp/sql");
+# set_perm(0, 0, 0777, "/tmp/sql");
+# ui_print("Optimizing Caches... can take 2 mins");
+# run_program("/tmp/sql");
+
+# Cleanup a little to avoid Build Version conflicts
+run_program("/sbin/rm", "/system/build.prop.bak");
 set_progress(0.99);
 
 # Wipe
-ui_print("Wiping dalvik-cache");
-delete_recursive("/data/dalvik-cache");
+ui_print("Clean up");
+# delete_recursive("/data/dalvik-cache");
 delete_recursive("/tmp/aroma");
 
 set_progress(1);
@@ -315,6 +309,6 @@ ui_print(" ");
 # Unmount
 unmount("/data");
 unmount("/system");
-unmount("/cache");
-unmount("/ext");
+# unmount("/cache");
+# unmount("/ext");
 ui_print("JBX-Kernel Installed! Enjoy!");
