@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RomConfig>
+    <RomName>JBX-Kernel</RomName>
+    <OtaUid>jbxk_t_kk</OtaUid>
+    <RomVersion>2.1.6</RomVersion>
+    <RomCheckUrl>http://www.dtrailer.de/jbxk_t_kk/ota/update_me_check.xml</RomCheckUrl>
+    <RomElemUrl>http://www.dtrailer.de/jbxk_t_kk/ota/common_update_me.xml</RomElemUrl>
+	<RebootType>1</RebootType>
+</RomConfig>

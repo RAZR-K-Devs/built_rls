@@ -1,0 +1,126 @@
+﻿##
+#
+# AROMA Installer - AROMA Kernel Chooser
+#       (c) 2011-2012 by Ahmad Amarullah
+#           amarullz - xda-developers
+#           http://www.amarullz.com/
+#
+#       Binary Version  : 2.70RC2
+#       Binary Codename : Flamboyan
+#
+###################################################################################################################
+
+# Keys config
+# ini_set("customkeycode_up",     "115");
+# ini_set("customkeycode_down",   "114");
+# ini_set("customkeycode_select", "107");
+# ini_set("customkeycode_menu",   "139");
+# ini_set("customkeycode_back",   "158");
+
+ini_set("rom_name",             "JBX-Kernel Hybrid -- TARGA-EDITION");
+ini_set("rom_version",          "2.1");
+ini_set("rom_author",           "dtrail");
+ini_set("rom_device",           "Motorola Bionic");
+ini_set("rom_date",             "Jan, 20 2014");
+
+#
+# Set Small Font to Support all fonts
+#
+fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
+fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
+
+# ICS Theme
+theme("ics");
+
+# Splashscreen
+splash(
+    2000,
+    "jbx"
+);
+
+viewbox(
+  "Welcome",
+  "\n\n\n\n\n"+
+  "You're about to flash:\n"+
+  ini_get("rom_name") + " for " + ini_get("rom_device") +  "\n\n\n"+
+  "  Version:  <#080>" + ini_get("rom_version") + "</#>\n"+
+  "  Updated:  <#080>" + ini_get("rom_date") + "</#>\n\n\n"+
+  "Tap Next to continue the installation...",
+  "icons/info"
+);
+
+checkbox(
+	      "Installation Option",
+	      "Select your preferred option(s)",
+	      "@update",
+	      "install.prop",	  
+	"Kernel",		"",2,	#-- Group 1. key = "item.1"
+
+ "Backup current kernel",       "UNPLUG USB CABLE!!! Select this option to backup your current installed Kernel. It will create a backup folder on your sdcard.",1,	#-- item.1 = 1
+ "Restore prior kernel",      	"DO NOT SELECT IF INSTALLING JBX!!!! Select this option to restore your prior kernel (Must have an exisitng backup)",0, #-- item.1 = 2
+ "Install JBX-Kernel", 		"Install the best Kernel experience for Motorola phones! (DO NOT SELECT HIS IF YOU WANT TO RESTORE YOUR OLD KERNEL!!)",1,	#-- item.1 = 3
+ "FULL CLEAN-UP", 		"WARNING: Select this option as the ONLY ONE or together with RESTORE!! This will remove all JBX-Tweaks you installed once!",0	#-- item.1 = 4
+);
+
+checkbox(
+  "Tweaks",
+  "Check your preferred option(s) (uncheck if unsure):",
+  "@personalize",
+  "tweaks.prop",
+  "Additional Tweaks","",2,  #-- Group 2. key = "item.2"
+  "Init.d",						"",			2,
+    "Init.d Memory Tweaks",            "Changes the RAM/Memory usage.",0,	#-- item.2 = 1
+    "Init.d Net-Security Tweaks",      	"Optimized configuration of Net-Security (IPv4), such like unallowed redirects, etc.",0, #-- item.2 = 2
+    "Init.d Net-Speed Tweaks",      	"Changes the configuration of Net-Speed (IPv4).",0, #-- item.2 = 3
+    "Init.d Battery Tweaks",      	"Optimized kernel configuration for less power consumption. Can cause instability in some cases (maybe).",0, #-- item.2 = 4
+    "Init.d read_ahead Tweaks",      	"optimized Cache configuration. Adjusts read_ahead kb.",0, #-- item.2 = 5
+    "Init.d Mount Tweaks",      	"Optimized mount points configuration. Increases speed. Can cause instability in some cases (maybe).",0, #-- item.2 = 6
+    "Init.d Sleeper Tweaks",      	"Changes the state of Sleeper configuration. Can increase speed and result in a better battery consumption.",0, #-- item.2 = 7
+  "Startup and extra",						"",			2, #-- Group 3. key = "item.3"
+    "nmi-Watchdog OFF",      		"This will turn off the nmi_watchdog. Saves some power and increases speed - but also disables some debug options.",1, #-- item.3 = 1
+    "Zipalign apps on boot",      	"Zipalign all apps on each startup. Can affect boot time.",0, #-- item.3 = 2
+    "Optimize SQlite database on boot", "SQlite database optimization on each startup. Can affect boot time.",0,  #-- item.3 = 3
+    "Iw_config", 			"Installs the iwmulticall binary for Wifi Power Management. Low PM mode will be turned ON by default. Saves power for Wifi usage",0,  #-- item.3 = 4
+  "Settings-App","",									2, #-- Group 4. key = "item.4"
+    "Trickster Mod",       		"The best Kernel Settings Management App for JBX-Kernel",1, #-- item.4 = 1
+    "Powertop 2.2", 			"Intel Powertop from Ubuntu. This is a Terminal-Based Power Management App. Run by typing 'su' and 'powertop'",1, #-- item.4 = 2
+  "Camera","",										2, #-- Group 5. key = "item.5"
+    "Motorola Moto X Cam",         	"Leaked Moto X Cam. Very great cam!",1, #-- item.5 = 1
+    "Motorola Stock Camera",       	"Camera from Moto Stock Roms",0, #-- item.5 = 2
+    "720p/1080p Video Recording",	"720p HD Video Recording (ONLY for older KK-Roms)!",0, #-- item.5 = 3
+    "REMOVE: 720p/1080p Video Recording",	"Restore default camera profiles",0, #-- item.5 = 4
+  "Temporary Bugfixes","",								2, #-- Group 6. key = "item.6"
+    "Xposed Framework + Battery Stats module",	"Get Battery Info Stats enabled in KitKat (i.e. for BetterBatteryStats). An emergency zip file will be created on sdcard-ext!",1,
+  "Temporary Options","",								2, #-- Group 7. key = "item.7"
+    "Battery Friend DISABLE",		"WARNING!!! READ THE FAQ! BF is enabled by default. Disabling BF will unlock OC options! BE CAREFUL with OC your device!",0
+);
+
+# Installation
+
+ini_set("text_next", "Install now");
+viewbox(
+    "Ready to install",
+    "You are now ready to begin installation.\n\n"+
+    "Press <b>Install now</b> to start.\n\n"+
+    "If you want to review or change any of your installation settings, press <b>Back</b>.",
+    "@install"
+);
+
+ini_set("text_next", "Next");
+install(
+  "Installing",
+  "Flashing <b>"+ini_get("rom_name")+"</b>...\n"+
+  "Please Wait...",
+  "@install",
+  "Done! Press <b>Next</b> button"
+);
+
+ini_set("text_next", "Finish");
+viewbox(
+    "Installation was successful!",
+    "You are now running <b><#selectbg_g>"+ini_get("rom_name")+"</#></b>.\n\n"+
+    "<b>Have fun with your new custom kernel</b>\n\n"+
+    "Please read the FAQ on my XDA-Thread! NOTE: Xposed Framework is a powerful tool!\n\n"+
+    "<#selectbg_g><b>Every donation to support the author of this ROM is greatly appreciated!</b></#>\n\n",
+    "@welcome"
+);
