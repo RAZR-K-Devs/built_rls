@@ -28,7 +28,7 @@ fi
 
 # Add edited-line
 echo " " >> $bp
-echo "# dtrail - build.prop additions" >> $bp
+echo "# dtrail - build.prop additions (OTA/SD)" >> $bp
 echo " " >> $bp
 
 # check build-prop for existing entries and replace/insert from misc script

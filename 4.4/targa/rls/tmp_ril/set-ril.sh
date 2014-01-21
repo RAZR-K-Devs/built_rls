@@ -28,11 +28,11 @@ fi
 
 # Add edited-line
 echo " " >> $bp
-echo "# dtrail - build.prop additions (OTA/SD)" >> $bp
+echo "# dtrail - build.prop additions (RIL)" >> $bp
 echo " " >> $bp
 
-# check build-prop for existing entries and replace/insert from misc script
-for mod in misc;
+# check build-prop for existing entries and replace/insert from misc_ril script
+for mod in misc_ril;
   do
     for prop in `cat /tmp/$mod`;do
       export newprop=$(echo ${prop} | cut -d '=' -f1)
