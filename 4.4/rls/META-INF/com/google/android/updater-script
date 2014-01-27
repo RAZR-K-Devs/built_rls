@@ -260,30 +260,30 @@ if
 endif;
 set_progress(0.88);
 
-if
-      file_getprop("/tmp/aroma/tweaks.prop","item.7.2") == "1"
-    then
-      ui_print("@  Applying RIL Tweaks");
-	package_extract_file("tmp_ril/set-ril.sh", "/tmp/set-ril.sh");
-	package_extract_file("tmp/misc_ril", "/tmp/misc_ril");
-	set_perm(0, 0, 0777, "/tmp/set-ril.sh");
-	run_program("/tmp/set-ril.sh", "set-ril");
-	set_progress(0.85);
-	run_program("/sbin/rm", "/system/build.prop.bak");
-endif;
+#if
+#      file_getprop("/tmp/aroma/tweaks.prop","item.7.2") == "1"
+#    then
+#      ui_print("@  Applying RIL Tweaks");
+#	package_extract_file("tmp_ril/set-ril.sh", "/tmp/set-ril.sh");
+#	package_extract_file("tmp/misc_ril", "/tmp/misc_ril");
+#	set_perm(0, 0, 0777, "/tmp/set-ril.sh");
+#	run_program("/tmp/set-ril.sh", "set-ril");
+#	set_progress(0.85);
+#	run_program("/sbin/rm", "/system/build.prop.bak");
+#endif;
 set_progress(0.91);
 
-if
-      file_getprop("/tmp/aroma/tweaks.prop","item.7.3") == "1"
-    then
-      ui_print("@  Applying ROM Tweaks");
-	package_extract_file("tmp_ril/set-rom.sh", "/tmp/set-rom.sh");
-	package_extract_file("tmp/misc_rom", "/tmp/misc_rom");
-	set_perm(0, 0, 0777, "/tmp/set-rom.sh");
-	run_program("/tmp/set-rom.sh", "set-rom");
-	set_progress(0.85);
-	run_program("/sbin/rm", "/system/build.prop.bak");
-endif;
+# if
+#      file_getprop("/tmp/aroma/tweaks.prop","item.7.3") == "1"
+#    then
+#      ui_print("@  Applying ROM Tweaks");
+#	package_extract_file("tmp_ril/set-rom.sh", "/tmp/set-rom.sh");
+#	package_extract_file("tmp/misc_rom", "/tmp/misc_rom");
+#	set_perm(0, 0, 0777, "/tmp/set-rom.sh");
+#	run_program("/tmp/set-rom.sh", "set-rom");
+#	set_progress(0.85);
+#	run_program("/sbin/rm", "/system/build.prop.bak");
+#endif;
 set_progress(0.94);
 
 ##############################################################
