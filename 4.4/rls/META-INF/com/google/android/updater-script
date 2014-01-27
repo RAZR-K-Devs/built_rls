@@ -48,6 +48,7 @@ if
       ui_print("@  Restoring prior kernel and modules");
 	run_program("/sbin/cp", "-f", "/sdcard-ext/kernel_backup/kernel.bak", "/system/etc/kexec/kernel");
 	run_program("/sbin/cp", "-rf", "/sdcard-ext/kernel_backup/modules", "/system/lib/");
+	run_program("/sbin/cp", "-f", "/sdcard-ext/kernel_backup/build.prop.bak", "/system/build.prop");
 	run_program("/sbin/rm", "/system/etc/init.d/01kernel");
 	run_program("/sbin/rm", "/system/etc/init.d/60sdche");
 	run_program("/sbin/rm", "/system/etc/init.d/00tweaks");
@@ -78,6 +79,7 @@ if
 	set_perm(0, 0, 0777, "/tmp/set-props.sh");
 	run_program("/tmp/set-props.sh", "set-prop");
 	set_progress(0.85);
+	run_program("/sbin/cp", "-f", "/system/build.prop.bak", "/sdcard-ext/kernel_backup/build.prop.bak");
 	run_program("/sbin/rm", "/system/build.prop.bak");
 endif;
 set_progress(0.14);
@@ -102,7 +104,7 @@ if
 	run_program("/sbin/rm", "/system/app/Trickstermod.apk");
 	run_program("/sbin/rm", "/system/app/EnableBatteryStatsPermission_1.1.apk");
 	run_program("/sbin/rm", "/system/app/XposedInstaller_2.4-beta1.apk");
-	package_extract_dir("jbx/Applications/nonhd", "/system/etc");
+	run_program("/sbin/cp", "-f", "/sdcard-ext/kernel_backup/build.prop.bak", "/system/build.prop");
 endif;
 set_progress(0.16);
 
