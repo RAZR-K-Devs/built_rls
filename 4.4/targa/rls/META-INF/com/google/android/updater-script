@@ -60,7 +60,6 @@ if
 	run_program("/sbin/rm", "/system/etc/init.d/S70zipalign");
 	run_program("/sbin/rm", "/system/etc/init.d/S99_Battery_Friend");
 	run_program("/sbin/rm", "/system/etc/init.d/32netspeed");
-	package_extract_dir("jbx/Applications/nonhd", "/system/etc");
 	run_program("/sbin/rm", "/system/app/MotoX-Camera-3.0.187.apk");
 	run_program("/sbin/rm", "/system/app/EnableBatteryStatsPermission_1.1.apk");
 	run_program("/sbin/rm", "/system/app/XposedInstaller_2.4-beta1.apk");
@@ -104,7 +103,6 @@ if
 	run_program("/sbin/rm", "/system/app/Trickstermod.apk");
 	run_program("/sbin/rm", "/system/app/EnableBatteryStatsPermission_1.1.apk");
 	run_program("/sbin/rm", "/system/app/XposedInstaller_2.4-beta1.apk");
-	package_extract_dir("jbx/Applications/nonhd", "/system/etc");
 endif;
 set_progress(0.16);
 
@@ -226,22 +224,6 @@ if
 	  package_extract_dir("jbx/Applications/motc", "/system/app");
 endif;
 set_progress(0.76);
-
-if
-      file_getprop("/tmp/aroma/tweaks.prop","item.5.3") == "1"
-    then
-      ui_print("@  Installing Camera HD Mod");
-	  package_extract_dir("jbx/Applications/hd", "/system/etc");
-endif;
-set_progress(0.79);
-
-if
-      file_getprop("/tmp/aroma/tweaks.prop","item.5.4") == "1"
-    then
-      ui_print("@  Removing Camera HD Mod");
-	  package_extract_dir("jbx/Applications/nonhd", "/system/etc");
-endif;
-set_progress(0.82);
 
 if
       file_getprop("/tmp/aroma/tweaks.prop","item.6.1") == "1"

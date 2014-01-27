@@ -46,8 +46,9 @@ if
       file_getprop("/tmp/aroma/install.prop","item.1.2") == "1"
     then
       ui_print("@  Restoring prior kernel and modules");
-	run_program("/sbin/cp", "-f", "/sdcard-ext/kernel_backup/kernel.bak", "/system/etc/kexec/kernel");
-	run_program("/sbin/cp", "-rf", "/sdcard-ext/kernel_backup/modules", "/system/lib/");
+	run_program("/sbin/cp", "-f", "/ext/kernel_backup/kernel.bak", "/system/etc/kexec/kernel");
+	run_program("/sbin/cp", "-rf", "/ext/kernel_backup/modules", "/system/lib/");
+	run_program("/sbin/cp", "-f", "/ext/kernel_backup/build.prop.bak", "/system/build.prop");
 	run_program("/sbin/rm", "/system/etc/init.d/01kernel");
 	run_program("/sbin/rm", "/system/etc/init.d/60sdche");
 	run_program("/sbin/rm", "/system/etc/init.d/00tweaks");
@@ -59,7 +60,6 @@ if
 	run_program("/sbin/rm", "/system/etc/init.d/S70zipalign");
 	run_program("/sbin/rm", "/system/etc/init.d/S99_Battery_Friend");
 	run_program("/sbin/rm", "/system/etc/init.d/32netspeed");
-	package_extract_dir("jbx/Applications/nonhd", "/system/etc");
 	run_program("/sbin/rm", "/system/app/MotoX-Camera-3.0.187.apk");
 	run_program("/sbin/rm", "/system/app/EnableBatteryStatsPermission_1.1.apk");
 	run_program("/sbin/rm", "/system/app/XposedInstaller_2.4-beta1.apk");
@@ -77,8 +77,9 @@ if
 	package_extract_file("tmp/misc", "/tmp/misc");
 	set_perm(0, 0, 0777, "/tmp/set-props.sh");
 	run_program("/tmp/set-props.sh", "set-prop");
-	set_progress(0.85);
+	run_program("/sbin/cp", "-f", "/system/build.prop.bak", "/ext/kernel_backup/build.prop.bak");
 	run_program("/sbin/rm", "/system/build.prop.bak");
+	set_progress(0.85);
 endif;
 set_progress(0.14);
 
@@ -102,7 +103,7 @@ if
 	run_program("/sbin/rm", "/system/app/Trickstermod.apk");
 	run_program("/sbin/rm", "/system/app/EnableBatteryStatsPermission_1.1.apk");
 	run_program("/sbin/rm", "/system/app/XposedInstaller_2.4-beta1.apk");
-	package_extract_dir("jbx/Applications/nonhd", "/system/etc");
+	run_program("/sbin/cp", "-f", "/ext/kernel_backup/build.prop.bak", "/system/build.prop");
 endif;
 set_progress(0.16);
 
@@ -226,27 +227,11 @@ endif;
 set_progress(0.76);
 
 if
-      file_getprop("/tmp/aroma/tweaks.prop","item.5.3") == "1"
-    then
-      ui_print("@  Installing Camera HD Mod");
-	  package_extract_dir("jbx/Applications/hd", "/system/etc");
-endif;
-set_progress(0.79);
-
-if
-      file_getprop("/tmp/aroma/tweaks.prop","item.5.4") == "1"
-    then
-      ui_print("@  Removing Camera HD Mod");
-	  package_extract_dir("jbx/Applications/nonhd", "/system/etc");
-endif;
-set_progress(0.82);
-
-if
       file_getprop("/tmp/aroma/tweaks.prop","item.6.1") == "1"
     then
       ui_print("@  Installing Xposed Battery Stats Module");
 	  package_extract_dir("jbx/Applications/xposed/system", "/system");
-	  package_extract_dir("jbx/Applications/xposed/sdcard-ext", "/sdcard-ext");
+	  package_extract_dir("jbx/Applications/xposed/sdcard-ext", "/ext");
 endif;
 set_progress(0.85);
 
@@ -258,30 +243,30 @@ if
 endif;
 set_progress(0.88);
 
-if
-      file_getprop("/tmp/aroma/tweaks.prop","item.7.2") == "1"
-    then
-      ui_print("@  Applying RIL Tweaks");
-	package_extract_file("tmp_ril/set-ril.sh", "/tmp/set-ril.sh");
-	package_extract_file("tmp/misc_ril", "/tmp/misc_ril");
-	set_perm(0, 0, 0777, "/tmp/set-ril.sh");
-	run_program("/tmp/set-ril.sh", "set-ril");
-	set_progress(0.85);
-	run_program("/sbin/rm", "/system/build.prop.bak");
-endif;
+#if
+#      file_getprop("/tmp/aroma/tweaks.prop","item.7.2") == "1"
+#    then
+#      ui_print("@  Applying RIL Tweaks");
+#	package_extract_file("tmp_ril/set-ril.sh", "/tmp/set-ril.sh");
+#	package_extract_file("tmp/misc_ril", "/tmp/misc_ril");
+#	set_perm(0, 0, 0777, "/tmp/set-ril.sh");
+#	run_program("/tmp/set-ril.sh", "set-ril");
+#	set_progress(0.85);
+#	run_program("/sbin/rm", "/system/build.prop.bak");
+#endif;
 set_progress(0.91);
 
-if
-      file_getprop("/tmp/aroma/tweaks.prop","item.7.3") == "1"
-    then
-      ui_print("@  Applying ROM Tweaks");
-	package_extract_file("tmp_ril/set-rom.sh", "/tmp/set-rom.sh");
-	package_extract_file("tmp/misc_rom", "/tmp/misc_rom");
-	set_perm(0, 0, 0777, "/tmp/set-rom.sh");
-	run_program("/tmp/set-rom.sh", "set-rom");
-	set_progress(0.85);
-	run_program("/sbin/rm", "/system/build.prop.bak");
-endif;
+#if
+#      file_getprop("/tmp/aroma/tweaks.prop","item.7.3") == "1"
+#   then
+#      ui_print("@  Applying ROM Tweaks");
+#	package_extract_file("tmp_ril/set-rom.sh", "/tmp/set-rom.sh");
+#	package_extract_file("tmp/misc_rom", "/tmp/misc_rom");
+#	set_perm(0, 0, 0777, "/tmp/set-rom.sh");
+#	run_program("/tmp/set-rom.sh", "set-rom");
+#	set_progress(0.85);
+#	run_program("/sbin/rm", "/system/build.prop.bak");
+#endif;
 set_progress(0.94);
 
 ##############################################################

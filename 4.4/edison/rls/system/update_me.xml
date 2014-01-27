@@ -4,5 +4,6 @@
     <OtaUid>jbxk_e_kk</OtaUid>
     <RomVersion>2.1.7</RomVersion>
     <RomCheckUrl>http://www.dtrailer.de/jbxk_e_kk/ota/update_me_check.xml</RomCheckUrl>
+    <RomElemUrl>http://www.dtrailer.de/jbxk_e_kk/ota/common_update_me.xml</RomElemUrl>
 	<RebootType>1</RebootType>
 </RomConfig>
