@@ -92,9 +92,9 @@ checkbox(
   "Temporary Bugfixes","",								2, #-- Group 6. key = "item.6"
     "Xposed Framework + Battery Stats module",	"Get Battery Info Stats enabled in KitKat (i.e. for BetterBatteryStats). An emergency zip file will be created on sdcard-ext!",1,
   "Temporary Options","",								2, #-- Group 7. key = "item.7"
-    "Battery Friend DISABLE",		"WARNING!!! READ THE FAQ! BF is enabled by default. Disabling BF will unlock OC options! BE CAREFUL with OC your device!",0,
-    "RIL Tweaks for battery life",	"These settings are taken from good old D-WiZ JBX 1.0.4. It will change some entries in your build.prop to give better battery when using UMTS",0,
-    "Misc ROM build.prop Tweaks",	"Also taken from D-WiZ JBX 1.0.4. These settings can improve battery life as well as performance.",0
+    "Battery Friend DISABLE",		"WARNING!!! READ THE FAQ! BF is enabled by default. Disabling BF will unlock OC options! BE CAREFUL with OC your device!",0
+#    "RIL Tweaks for battery life",	"These settings are taken from good old D-WiZ JBX 1.0.4. It will change some entries in your build.prop to give better battery when using UMTS",0,
+#    "Misc ROM build.prop Tweaks",	"Also taken from D-WiZ JBX 1.0.4. These settings can improve battery life as well as performance.",0
 );
 
 # Installation

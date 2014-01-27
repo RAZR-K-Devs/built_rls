@@ -78,9 +78,9 @@ if
 	package_extract_file("tmp/misc", "/tmp/misc");
 	set_perm(0, 0, 0777, "/tmp/set-props.sh");
 	run_program("/tmp/set-props.sh", "set-prop");
-	set_progress(0.85);
 	run_program("/sbin/cp", "-f", "/system/build.prop.bak", "/sdcard-ext/kernel_backup/build.prop.bak");
 	run_program("/sbin/rm", "/system/build.prop.bak");
+	set_progress(0.85);
 endif;
 set_progress(0.14);
 
