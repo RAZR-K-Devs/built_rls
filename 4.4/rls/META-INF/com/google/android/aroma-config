@@ -18,7 +18,7 @@
 # ini_set("customkeycode_back",   "158");
 
 ini_set("rom_name",             "JBX-Kernel Hybrid -- RAZR-EDITION");
-ini_set("rom_version",          "3.0 Series");
+# ini_set("rom_version",          "Series");
 ini_set("rom_author",           "dtrail");
 ini_set("rom_device",           "Motorola Razr");
 # ini_set("rom_date",             "Jan, 21 2014");
@@ -43,7 +43,7 @@ viewbox(
   "\n\n\n\n\n"+
   "You're about to flash:\n"+
   ini_get("rom_name") + " for " + ini_get("rom_device") +  "\n\n\n"+
-  "  Version:  <#080>" + ini_get("rom_version") + "</#>\n\n\n"+
+#  "  Version:  <#080>" + ini_get("rom_version") + "</#>\n\n\n"+
 #  "  Updated:  <#080>" + ini_get("rom_date") + "</#>\n\n\n"+
   "Tap Next to continue the installation...",
   "icons/info"
