@@ -1,0 +1,14 @@
+#!/system/bin/sh
+
+# ---> dtrail (D-WiZ 1.00) (c)2012
+#
+# Setting up kernel and memory tweaks
+# Shut down nmi watchdog
+# slow down kernel latency
+#
+#
+echo 1 > /proc/sys/vm/oom_kill_allocating_task;
+echo 0 > /proc/sys/vm/laptop_mode;
+echo 0 > /proc/sys/vm/panic_on_oom;
+echo 20 > /proc/sys/vm/swappiness;
+echo 3 > /proc/sys/vm/page-cluster;

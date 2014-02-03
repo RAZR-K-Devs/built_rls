@@ -1,0 +1,36 @@
+#!/system/bin/sh
+
+# ---> dtrail (D-WiZ 1.00) (c)2012
+#
+# Setting up kernel and memory tweaks
+# Shut down nmi watchdog
+# slow down kernel latency
+#
+#
+
+busybox sysctl -e -w fs.file-max=524288;
+busybox sysctl -e -w fs.inotify.max_queued_events=32000;
+busybox sysctl -e -w fs.inotify.max_user_instances=256;
+busybox sysctl -e -w fs.inotify.max_user_watches=10240;
+busybox sysctl -e -w fs.lease-break-time=10;
+busybox sysctl -e -w kernel.msgmax=65536;
+busybox sysctl -e -w kernel.msgmni=4096;
+busybox sysctl -e -w kernel.panic=10;
+busybox sysctl -e -w kernel.random.read_wakeup_threshold=128;
+busybox sysctl -e -w kernel.random.write_wakeup_threshold=256;
+busybox sysctl -e -w kernel.sched_latency_ns=20000000;
+busybox sysctl -e -w kernel.sched_wakeup_granularity_ns=3000000;
+busybox sysctl -e -w kernel.sem='500 512000 64 2048';
+busybox sysctl -e -w kernel.shmmax=268435456;
+busybox sysctl -e -w kernel.threads-max=524288;
+busybox sysctl -e -w net.core.rmem_max=524288;
+busybox sysctl -e -w net.core.wmem_max=524288;
+busybox sysctl -e -w vm.dirty_background_ratio=70;
+busybox sysctl -e -w vm.dirty_expire_centisecs=1000;
+busybox sysctl -e -w vm.dirty_writeback_centisecs=1500;
+busybox sysctl -e -w vm.dirty_ratio=95;
+busybox sysctl -e -w vm.min_free_kbytes=20480;
+busybox sysctl -e -w vm.panic_on_oom=0;
+busybox sysctl -e -w vm.percpu_pagelist_fraction =0;
+busybox sysctl -e -w vm.overcommit_memory=1;
+busybox sysctl -e -w vm.min_free_order_shift=4;
