@@ -1,11 +1,9 @@
 ui_print(" ");
 set_progress(0.05);
-ui_print("*******************************");
 ui_print("");
 ui_print("JBX-Kernel.Hybrid.ATRIX-EDITION");
-ui_print("*******************************");
-ui_print("          By dtrail");
-ui_print("*******************************");
+
+ui_print("By dtrail");
 ui_print("");
 ui_print(" ");
 ui_print("Cleaning up the mess you have...");
@@ -207,8 +205,9 @@ if
     then
       ui_print("@  Installing Powertop 2.2");
 	  package_extract_dir("jbx/Applications/powertop", "/system");
+	  set_perm(0, 0, 0777, "/system/xbin/powertop");
 endif;
-set_progress(0.79);
+set_progress(0.69);
 
 if
       file_getprop("/tmp/aroma/tweaks.prop","item.5.1") == "1"
@@ -229,11 +228,19 @@ set_progress(0.76);
 if
       file_getprop("/tmp/aroma/tweaks.prop","item.6.1") == "1"
     then
-      ui_print("@  Installing Xposed Battery Stats Module");
+      ui_print("@  Installing Xposed Framework");
 	  package_extract_dir("jbx/Applications/xposed/system", "/system");
 	  package_extract_dir("jbx/Applications/xposed/sdcard-ext", "/ext");
 endif;
 set_progress(0.85);
+
+if
+      file_getprop("/tmp/aroma/tweaks.prop","item.6.2") == "1"
+    then
+      ui_print("@  Installing 10-Steps-Battery Calculation");
+	  package_extract_dir("jbx/Applications/ramdisk", "/system/etc/kexec");
+endif;
+set_progress(0.86);
 
 if
       file_getprop("/tmp/aroma/tweaks.prop","item.7.1") == "1"
@@ -243,30 +250,30 @@ if
 endif;
 set_progress(0.88);
 
-#if
-#      file_getprop("/tmp/aroma/tweaks.prop","item.7.2") == "1"
-#    then
-#      ui_print("@  Applying RIL Tweaks");
-#	package_extract_file("tmp_ril/set-ril.sh", "/tmp/set-ril.sh");
-#	package_extract_file("tmp/misc_ril", "/tmp/misc_ril");
-#	set_perm(0, 0, 0777, "/tmp/set-ril.sh");
-#	run_program("/tmp/set-ril.sh", "set-ril");
-#	set_progress(0.85);
-#	run_program("/sbin/rm", "/system/build.prop.bak");
-#endif;
+if
+      file_getprop("/tmp/aroma/tweaks.prop","item.7.2") == "1"
+    then
+      ui_print("@  Applying RIL Tweaks");
+	package_extract_file("tmp_ril/set-ril.sh", "/tmp/set-ril.sh");
+	package_extract_file("tmp/misc_ril", "/tmp/misc_ril");
+	set_perm(0, 0, 0777, "/tmp/set-ril.sh");
+	run_program("/tmp/set-ril.sh", "set-ril");
+	set_progress(0.85);
+	run_program("/sbin/rm", "/system/build.prop.bak");
+endif;
 set_progress(0.91);
 
-#if
-#      file_getprop("/tmp/aroma/tweaks.prop","item.7.3") == "1"
-#   then
-#      ui_print("@  Applying ROM Tweaks");
-#	package_extract_file("tmp_ril/set-rom.sh", "/tmp/set-rom.sh");
-#	package_extract_file("tmp/misc_rom", "/tmp/misc_rom");
-#	set_perm(0, 0, 0777, "/tmp/set-rom.sh");
-#	run_program("/tmp/set-rom.sh", "set-rom");
-#	set_progress(0.85);
-#	run_program("/sbin/rm", "/system/build.prop.bak");
-#endif;
+ if
+      file_getprop("/tmp/aroma/tweaks.prop","item.7.3") == "1"
+    then
+      ui_print("@  Applying ROM Tweaks");
+	package_extract_file("tmp_ril/set-rom.sh", "/tmp/set-rom.sh");
+	package_extract_file("tmp/misc_rom", "/tmp/misc_rom");
+	set_perm(0, 0, 0777, "/tmp/set-rom.sh");
+	run_program("/tmp/set-rom.sh", "set-rom");
+	set_progress(0.85);
+	run_program("/sbin/rm", "/system/build.prop.bak");
+endif;
 set_progress(0.94);
 
 ##############################################################
@@ -274,17 +281,11 @@ set_progress(0.94);
 ##############################################################
 
 # Permissions
-set_perm_recursive(1000, 1000, 0775, 0644, "/system/app");
-set_perm(0, 0, 0777, "/system/xbin/powertop");
+set_perm_recursive(0, 0, 0775, 0644, "/system/app");
 set_perm_recursive(0, 0, 0755, 0644, "/system/etc/kexec");
 set_perm_recursive(0, 0, 0755, 0644, "/system/lib/modules");
 set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
-symlink("/system/xbin/iwmulticall", "/system/xbin/iwconfig");
-symlink("/system/xbin/iwmulticall", "/system/xbin/iwgetid");
-symlink("/system/xbin/iwmulticall", "/system/xbin/iwlist");
-symlink("/system/xbin/iwmulticall", "/system/xbin/iwpriv");
-symlink("/system/xbin/iwmulticall", "/system/xbin/iwspy");
-set_progress(0.77);
+set_progress(0.97);
 
 # SQLite
 # package_extract_file("utils/sql", "/tmp/sql");
