@@ -1,4 +1,9 @@
 #!/system/bin sh
+
+rm -rf /data/tmp/battd/
+rm -rf /data/battd/
+rm -rf /pds/public/battd/
+
 SLEEP=500
  
 if [ -e /data/.jbx/battery-calibrated ] ; then
