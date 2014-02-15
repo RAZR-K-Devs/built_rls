@@ -3,6 +3,7 @@
 rm -rf /data/tmp/battd/
 rm -rf /data/battd/
 rm -rf /pds/public/battd/
+rm -rf /tmp/data/battd/
 
 SLEEP=500
  
