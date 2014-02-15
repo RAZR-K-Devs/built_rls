@@ -2,7 +2,7 @@
 <RomConfig>
     <RomName>JBX-Kernel</RomName>
     <OtaUid>jbxk_e_kkx</OtaUid>
-    <RomVersion>3.0.4</RomVersion>
+    <RomVersion>3.0.5</RomVersion>
     <RomCheckUrl>http://www.dtrailer.de/jbxk_e_kkx/ota/update_me_check.xml</RomCheckUrl>
     <RomElemUrl>http://www.dtrailer.de/jbxk_e_kkx/ota/common_update_me.xml</RomElemUrl>
 	<RebootType>1</RebootType>
