@@ -2,6 +2,6 @@
 #
 # Limit the GPU frequency to 307 mhz
 
-sleep 500
+sleep 5
 
 echo "307200000" > /sys/devices/platform/omap/pvrsrvkm.0/sgxfreq/frequency_limit

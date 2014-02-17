@@ -4,6 +4,7 @@
 #
 # Remove battd file and cleanup itself
 #
+mount /system
 
 rm /system/etc/init.d/80battd
 rm /system/etc/init.d/S99_Battery_Friend
