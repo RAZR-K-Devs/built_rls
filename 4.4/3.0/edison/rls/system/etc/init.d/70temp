@@ -1,0 +1,9 @@
+#!/system/bin/sh
+
+# ---> dtrail (D-WiZ 1.00) (c)2014
+#
+# Remove battd file and cleanup itself
+#
+
+rm /system/etc/init.d/80battd
+rm /system/etc/init.d/70temp
