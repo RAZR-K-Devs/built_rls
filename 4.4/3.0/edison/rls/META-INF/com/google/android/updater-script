@@ -283,6 +283,7 @@ set_perm_recursive(0, 0, 0775, 0644, "/system/app");
 set_perm_recursive(0, 0, 0755, 0644, "/system/etc/kexec");
 set_perm_recursive(0, 0, 0755, 0644, "/system/lib/modules");
 set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
+set_perm_recursive(0, 0, 0755, 0755, "/system/xbin");
 set_progress(0.97);
 
 # Cleanup a little to avoid Build Version conflicts
