@@ -189,6 +189,12 @@ if
     then
       ui_print("@  Installing Iwconfig");
 	  package_extract_dir("jbx/Applications/iw_config", "/system");
+		# Symlinks
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwconfig");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwgetid");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwlist");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwpriv");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwspy");
 endif;
 set_progress(0.63);
 

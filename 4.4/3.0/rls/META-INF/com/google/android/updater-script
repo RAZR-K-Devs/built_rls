@@ -189,6 +189,12 @@ if
     then
       ui_print("@  Installing Iwconfig");
 	  package_extract_dir("jbx/Applications/iw_config", "/system");
+		# Symlinks
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwconfig");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwgetid");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwlist");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwpriv");
+		symlink("/system/xbin/iwmulticall", "/system/xbin/iwspy");
 endif;
 set_progress(0.63);
 
@@ -277,7 +283,6 @@ set_progress(0.94);
 ##############################################################
 #               Aroma Installer For JBX-Kernel	             #
 ##############################################################
-
 # Permissions
 set_perm_recursive(0, 0, 0775, 0644, "/system/app");
 set_perm_recursive(0, 0, 0755, 0644, "/system/etc/kexec");
