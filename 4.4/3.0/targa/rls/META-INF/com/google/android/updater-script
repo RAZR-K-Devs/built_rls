@@ -199,6 +199,14 @@ endif;
 set_progress(0.63);
 
 if
+      file_getprop("/tmp/aroma/tweaks.prop","item.3.5") == "1"
+    then
+      ui_print("@  Disabling HDMI by default");
+	  package_extract_dir("jbx/Applications/hdmi", "/system/etc/init.d");
+endif;
+set_progress(0.64);
+
+if
       file_getprop("/tmp/aroma/tweaks.prop","item.4.1") == "1"
     then
       ui_print("@  Installing Trickster Mod");
