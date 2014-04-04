@@ -13,3 +13,5 @@
 #
 
 echo "0" > /sys/kernel/hdmi/hdmi_active;
+echo "0" > /sys/devices/platform/omapdss/display1/enabled
+echo "0" > /sys/devices/platform/omapdss/display2/enabled
