@@ -217,6 +217,22 @@ set_progress(0.66);
 if
       file_getprop("/tmp/aroma/tweaks.prop","item.4.2") == "1"
     then
+      ui_print("@  Installing Kernel Enhancement");
+	  package_extract_dir("jbx/Applications/kenhance", "/system/app");
+endif;
+set_progress(0.67);
+
+if
+      file_getprop("/tmp/aroma/tweaks.prop","item.4.3") == "1"
+    then
+      ui_print("@  Installing DSHT Kernel Tweaker");
+	  package_extract_dir("jbx/Applications/ktweaker", "/system/app");
+endif;
+set_progress(0.68);
+
+if
+      file_getprop("/tmp/aroma/tweaks.prop","item.4.4") == "1"
+    then
       ui_print("@  Installing Powertop 2.2");
 	  package_extract_dir("jbx/Applications/powertop", "/system");
 	  set_perm(0, 0, 0777, "/system/xbin/powertop");

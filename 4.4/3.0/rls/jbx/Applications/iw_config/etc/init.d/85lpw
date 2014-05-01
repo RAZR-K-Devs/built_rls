@@ -4,4 +4,5 @@
 #
 # Setting Power Management for Wifi
 
-iwconfig qmi0 power on
+iw wlan0 set power_save on
+iwconfig wlan0 power 500m
