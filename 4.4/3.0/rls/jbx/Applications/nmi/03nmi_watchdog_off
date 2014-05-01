@@ -6,4 +6,4 @@
 #
 #
 
-echo 0 > /proc/sys/kernel/nmi_watchdog;
+echo "0" > /proc/sys/kernel/nmi_watchdog;

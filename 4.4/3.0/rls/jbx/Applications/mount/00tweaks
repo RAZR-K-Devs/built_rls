@@ -13,24 +13,24 @@
 # busybox mount -o remount,noatime,nodiratime $k
 # done
 
-mount -o remount,noatime,barrier=0,nobh /system
-mount -o remount,noatime /data
-mount -o remount,noatime,barrier=0,nobh /cache
+mount -o remount,noatime,barrier=0,nobh /system;
+mount -o remount,noatime /data;
+mount -o remount,noatime,barrier=0,nobh /cache;
 
 # sys /sys sysfs rw,relatime 0 0
 
-mount -o remount,noatime,nodiratime auto /
-mount -o remount,noatime,nodiratime auto /dev
-mount -o remount,noatime,nodiratime auto /proc
-mount -o remount,noatime,nodiratime auto /sys
-mount -o remount,noatime,nodiratime auto /mnt/asec
-mount -o remount,noatime,nodiratime auto /system
-mount -o remount,noatime,nodiratime auto /data
-mount -o remount,noatime,nodiratime auto /data/data
-mount -o remount,noatime,nodiratime auto /cache
-mount -o remount,noatime,nodiratime auto /mnt/sdcard
-mount -o remount,noatime,nodiratime auto /mnt/secure/asec
-mount -o remount,noatime,nodiratime auto /mnt/sdcard/.android_secure
+mount -o remount,noatime,nodiratime auto /:
+mount -o remount,noatime,nodiratime auto /dev;
+mount -o remount,noatime,nodiratime auto /proc;
+mount -o remount,noatime,nodiratime auto /sys;
+mount -o remount,noatime,nodiratime auto /mnt/asec;
+mount -o remount,noatime,nodiratime auto /system;
+mount -o remount,noatime,nodiratime auto /data;
+mount -o remount,noatime,nodiratime auto /data/data;
+mount -o remount,noatime,nodiratime auto /cache;
+mount -o remount,noatime,nodiratime auto /mnt/sdcard;
+mount -o remount,noatime,nodiratime auto /mnt/secure/asec;
+mount -o remount,noatime,nodiratime auto /mnt/sdcard/.android_secure;
 
 # Fail: proc und sys auf jedenfall auf realtime umstellen
 
