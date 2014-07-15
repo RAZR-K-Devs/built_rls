@@ -1,4 +1,5 @@
 #!/system/bin/sh
+
 #Defrag database files
 
 LOG_FILE=/data/db_defrag.log

@@ -1,17 +1,15 @@
 #!/system/bin/sh
 
 # ---> dtrail (D-WiZ 1.00) (c)2012
-#
-## JBX-Kernel 2.0 V12_01  (c)*dtrail
+
+# JBX-Kernel 2.0 V12_01  (c)*dtrail
+
 # *Based on MR1-JB Kernel (Motorola/STS-Dev-Team/Hashcode)
-#
-#
+
 # Setting up kernel and memory tweaks
 # Shut down nmi watchdog
 # slow down kernel latency
-#
-#
 
-echo "0" > /sys/kernel/hdmi/hdmi_active;
-echo "0" > /sys/devices/platform/omapdss/display1/enabled;
-echo "0" > /sys/devices/platform/omapdss/display2/enabled;
+echo '0' > /sys/kernel/hdmi/hdmi_active
+echo '0' > /sys/devices/platform/omapdss/display1/enabled
+echo '0' > /sys/devices/platform/omapdss/display2/enabled

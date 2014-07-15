@@ -1,7 +1,6 @@
 #!/system/bin/sh
-#
+
 # New Zipalign
-#
 # dtrail
 
 LOG_FILE=/data/zipalign.log
