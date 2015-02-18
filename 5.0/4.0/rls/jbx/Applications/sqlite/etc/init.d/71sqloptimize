@@ -1,0 +1,40 @@
+#!/system/bin/sh
+
+#Defrag database files
+
+LOG_FILE=/data/db_defrag.log
+DEFRAGDB=/data/db_defrag.db
+
+if [ -e $LOG_FILE ]; then
+        rm $LOG_FILE;
+fi;
+
+if [ ! -f $DEFRAGDB ]; then
+        touch $DEFRAGDB;
+fi;
+
+echo "Starting automatic DB defragmentation $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE
+
+function defrag() {
+  if [ -d "$1" ]; then
+    for i in `busybox find $1 -iname "*.db"`; 
+    do \
+      if [ $i -ot $DEFRAGDB ] && [ $(grep "$i" $DEFRAGDB|wc -l) -gt 0 ] ; then
+        echo "Already defragmented: $i" | tee -a $LOG_FILE
+      else
+        /system/xbin/sqlite3 $i 'VACUUM;';
+        /system/xbin/sqlite3 $i 'REINDEX;';
+        echo "Defragmented: $i" | tee -a $LOG_FILE
+        grep "$i" $DEFRAGDB > /dev/null || echo $i >> $DEFRAGDB
+      fi
+    done;
+  fi
+}
+
+defrag "/data/data"
+defrag "/dbdata"
+defrag "/datadata"
+defrag "/sdcard"
+
+touch $DEFRAGDB
+echo "Automatic DB defragmentation finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE

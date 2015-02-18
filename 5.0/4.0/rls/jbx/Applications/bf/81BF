@@ -1,0 +1,7 @@
+#!/system/bin/sh
+
+# ---> dtrail (D-WiZ 1.00) (c)2012
+
+# Keep Battery Friend disabled (NOTE: THis will unlock all OC options! Please read the FAQ to learn how using OC without causing damage!
+
+echo '0' > /sys/kernel/battery_friend/battery_friend_active;
